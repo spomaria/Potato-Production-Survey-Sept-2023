@@ -1,0 +1,548 @@
+---
+title: "Report of Survey on Potato Production in Plateau State"
+author: "Plateau State Potato Value Chain Support Project (PS-PVCP)"
+date: "September 15, 2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+## 1.0  INTRODUCTION
+
+### 1.1 BACKGROUND 
+The Government of the Federal Republic of Nigeria has received a loan from the African Development Fund in the amount of UA 8.0 million (about USD 11.2 million), to finance the Plateau State Potato Value Chain Support Project (PVCSP) which was to be implemented in 3 years (2018 – 2020) but has been extended twice, now to end by June 30, 2024. The project intervention is to contribute to employment generation; improve the competitiveness of the potato commodity value chain; and increase incomes of the commodity value chain actors. The project has the potential to create 60,000 jobs in the state of which 50% are to be women. 
+
+The overall goal of the Potato Value Chain Support Project is to contribute to employment generation and shared wealth creation along the potato commodity value chain, as well as food security through increased access to rural infrastructure. The project’s specific objective is to increase, on a sustainable basis, the income of smallholder farmers and rural entrepreneurs that are engaged in the production, processing, storage and marketing of Potato. Key Indicators of outcomes of the Potato Value Chain Support Project include: additional income of farmers and rural entrepreneurs (50% are women), increased access to rural infrastructure works in the project area; and an improvement in the food security situation of food secure beneficiaries in the Project area (50% are women). An impact indicator is the additional jobs created (of which 50% are women). The total number of direct household beneficiaries targeted by the project is estimated at 11,500 households creating 60,000 jobs along the value chain of priority commodity of which 50% are women.
+
+### 1.2	POTATO PRODUCTION IN PLATEAU STATE
+Plateau State accounts for about 95% of the potato produced in Nigeria. Potato production in the State is done mainly during the rainy season and mostly in one cycle as farmers plant their crops early enough to avoid the devastation caused by Potato Late Blight. Also, prior to the year 2020, potato was only produced in nine (9) Local Government Areas (LGAs) of the State namely: Barkin Ladi, Bassa, Bokkos, Jos East, Jos North, Jos South, Mangu, Pankshin and Riyom. These nine (9) LGAs are referred to as Core Potato Producing LGAs while the remaining eight (8) LGAs are termed Non-Core Potato Producing LGAs and include: Kanam, Kanke, Mikang, Langtang North, Langtang South, Qua’an Pan, Shendam and Wase. These eight (8) Local Government Areas make up the Southern Agro-Ecological Zone of the State.
+
+The Project Implementation Unit (PIU) of the Plateau State Potato Value Chain Support Project observed that climatic conditions of the Southern Agro-Ecological Zone of the State are similar to that of Zaria, Kaduna State where potato is produced as well through dry season irrigation. The PIU in the year 2020, conducted Potato Adaptability Trial in the Southern Agro-Ecological Zone on farmers’ farms from November, 2020 to February, 2021. The aim of the adaptability trial is to demonstrate the viability or otherwise of potato in that zone. The results of the trials were impressive and farmers were encouraged to key into potato production. This trial was revalidated in the year 2021 (November, 2021 to February, 2022) reaffirming the results obtained in the previous year.
+
+With several workshops and trainings conducted for farmers across the State on potato commodity by the PIU, this survey seeks to provide an insight into farming practices relating to potato in the State as at the 2023 cropping season.
+
+
+
+## 2.0  DATA COLLECTION
+The survey process began in the first week of August, 2023 with the design of digital questionnaire using KoboToolbox. The choice of using KoboToolbox was based on its ability to function both offline and online bearing in mind the fact that potato farmers on the Plateau also reside in rural areas too, with some having poor or no network coverage. 
+
+The KoboToolbox link was shared with the seventeen (17) Local Government Desk Officers on August 14, 2023 via the Whatsapp platform which has been in use since October, 2022. The survey ended on September 5, 2023, covering a duration of three weeks. The Plateau State Potato Value Chain Support Project has so far registered 24,227 farmers across the 17 Local Government Areas (LGAs) of the State through the various Desk Officers. 
+
+About 26% of the registered farmers was targeted as sample size for the survey corresponding to 6,358 participants. Stratified Sampling was used to determine the sample size for each Local Government since the number of registered farmers vary across the LGAs. At the end of the survey, 4,747 farmers participated being 19.6% of the total registered farmers and 74% of the target sample size. The survey data (in csv format) is stored in GitHub, an open source developer platform and can be accessed via [this link](https://github.com/spomaria/ps_pvcp_survey_report_jul_2023).
+
+## 3.0  DATA CLEANING
+Just as in most developing countries of the world, the locals use measurements that vary from international standards. Bearing this in mind, the survey questions were designed in a way as to use measurements that are familiar to the farmers and afterwards, make the necessary conversions. This technique will enhance farmers’ understanding of the survey questions and guarantee accurate responses thereby improving on the reliability of the results from survey.
+
+Data Cleaning measures undertaken include:
+
+1.	Farmers were requested to provide their phone numbers or those of a close relative or friend. Part of the phone number and other socio-economic characteristics of the farmers such as gender and year of birth, were combined together to generate unique identification code for each farmer. This unique code will be used for subsequent tracking in future surveys. Farmers’ phone numbers were then expunged from the data set to protect the privacy of those who partook in the survey and shield them from any sort of possible retribution or undesirable intrusion.
+
+2.	From field experiences, it was gathered that farmers either purchased potato seeds in baskets measuring about 25kg or bags measuring about 50kg. The farmers were asked the number of baskets or bags of potato seeds bought. This was later converted to tonnes (ton) by multiplying the number of baskets by 25 and the number of bags by 50, summing and dividing by 1000. This gives the estimated total amount of potato seeds planted (ton) per farmer.
+
+3.	Farmers were asked the number of plots of farmland cultivated not hectares. This is because, land is measured in plots in the State with a plot measuring 50 feet by 100 feet (15m × 30m). The number of plots was then multiplied by 450 and then divided by 10,000 thereby, converting the size of farmland to hectares.
+
+4.	The data was cleaned by removal of unnecessary spaces in answers that were self-typed by respondents, filling in blank spaces with values such as zero which will not skew the results but will not hinder the software from giving accurate results either.
+
+5. For the purpose of analysis, responses of farmers from the non-core Potato Producing LGAs were filtered out. This is because, the climatic conditions in the Southern Agro-ecological Belt of the State can only support dry season production of potato. Since this survey covers rainy season, only the core Potato Producing LGAs can realistically grow potato.
+
+6. Responses from farmers whose harvest month and survey month disagree were also filtered out (e.g. farmer filled the questionnaire in August but claims to have harvested potato in September).
+
+7. Finally, responses containing outliers where filtered out of the data. The data used for analysis was trimmed down to 3000 responses.
+
+## 4.0  ANALYSIS OF DATA
+
+### 4.1 EXPLORATORY ANALYSIS
+The survey data was downloaded from KoboToolbox as  .csv file and imported into RStudio for analysis. The csv file and the R script used to arrive at the results in this report can be found on GitHub using this [link](https://github.com/spomaria/ps_pvcp_survey_report_jul_2023).
+```{r loading_packages, results='hide'}
+  # We now load the required packages for the analysis
+  library(tidyverse)
+  library(skimr)
+```
+
+```{r}
+getwd()
+```
+
+```{r quick_scheme, results='hide'}
+# The name of the survey dataset is 'ps-pvcp_survey_july_2023--cleaned.csv'
+# This data set is in the same folder as this script
+pvcp_survey_data <- read_csv("/home/spomaria/Documents/Spomary-Files/R-Scripts/Potato-Production-Survey-Sept-2023/ps-pvcp_survey_sept_2023.csv")
+# The next line of code gives the descriptive properties used in the narrative below
+skim_without_charts(pvcp_survey_data)
+```
+The survey was completed in nineteen (19) days by farmers from 422 villages across the 17 LGAs of the Sate with a mean survey completion time of 7.28 minutes and an average household size of 7. The day of the week with highest number of completed surveys was Thursday while Monday had the least number of completed surveys. 
+```{r creation_of_variables, results='hide'}
+#We now create variables relevant to the objectives 
+#of our research
+#Create a variable that categorizes the LGAs into 
+#Core and Non-Core Potato Producing LGAs
+pvcp_data <- pvcp_survey_data %>%
+  #We use the pipe operator '%>%' to pass the result obtained from the 
+  #previous line to the next line
+  mutate(core_potato_lga = ifelse(lga_of_residence == "Barkin Ladi"|
+                                    lga_of_residence == "Bassa"|
+                                    lga_of_residence == "Bokkos"|
+                                    lga_of_residence == "Jos East"|
+                                    lga_of_residence == "Jos North"| 
+                                    lga_of_residence == "Jos South"|
+                                    lga_of_residence == "Riyom"| 
+                                    lga_of_residence == "Mangu"|
+                                    lga_of_residence == "Pankshin", "Yes", "No"),
+         #Create another variable for the proportion of money spent on
+         #preparation of potato farm compared to other crops
+         farm_prep_prop = round(cost_of_farm_prep/
+                                  (cost_of_farm_prep +
+                                      farm_prep_cost_other_crops)*100, 2),
+         #Create another variable for the proportion of fertilizer bought
+         #compared to the total fertilizer needed
+         fert_prop = round(fert_bags_purchased_preseason/fert_bags_required *100, 2),
+         #variable representing time to complete the survey
+         time_taken = end - start,
+         #create a variable for day of the week
+         survey_day = weekdays(start),
+         #create a variable for month the questionnaire was completed by the farmer
+         survey_month = months(start),
+         #convert farm size from plot to hectare
+         potato_farmsize_ha = farmland_cultivated_ha*450/10000,
+         # convert seeds from bags and baskets to tons and round to 2 decimal places
+         potato_seeds_tons = round((bags_of_potato_seeds*50 + baskets_of_potato_seed*25)/1000,2), 
+         # convert farm size from plots to hectares and round to 2 decimal places
+         farmsize_others_ha = round(farmland_other_crops*450/10000,2), 
+         # convert potato quantity from bags to tons and round to 2 decimal places
+         potato_harvested_tons = round(quantity_harvested_bags*50/1000,2), 
+         qty_potato_stored_tons = round(bags_of_potato_stored*50/1000,2),
+         post_harvest_loss_tons = round(post_harvest_loss_bags*50/1000,2),
+         potato_sold_tons = round(potato_sold_bags*50/1000,2),
+         potato_price_kg = round(potato_sold_bags/50,2),
+         potato_price_ton = round(potato_sold_bags/50*1000,2))
+
+#let's view our new dataset
+skim_without_charts(pvcp_data)
+```
+
+```{r dirty_data}
+pvcp_data %>%
+  select(-c(phone_number, phone_number_yours, yahoo_address, gmail_address)) %>%
+  write_csv(., 
+            "/home/spomaria/Documents/Spomary-Files/R-Scripts/Potato-Production-Survey-Sept-2023/ps_pvcp_production_data_sept_2023--dirty.csv")
+```
+
+
+
+```{r count_by_weekday, results='hide'}
+#To find the busiest day of the survey
+# We arrange the counts by day in descending order
+pvcp_data %>% 
+  #this code creates a count of responses per weekday
+  count(survey_day) %>%
+  # This code arranges the data in descending order
+  # Note '-n' means in descending order
+  arrange(-n)
+```
+```{r count_by_month, results='hide'}
+#To find the busiest day of the survey
+# We arrange the counts by day in descending order
+pvcp_data %>% 
+  #this code creates a count of responses per weekday
+  count(survey_month) %>%
+  # This code arranges the data in descending order
+  # Note '-n' means in descending order
+  arrange(-n)
+```
+
+```{r summary, results='hide'}
+#To find the busiest day of the survey
+# We arrange the counts by day in descending order
+pvcp_data %>%
+  filter(core_potato_lga == "Yes") %>%
+  filter(Household_size <100) %>%
+  filter(farmland_cultivated_ha <100) %>%
+  # Potato was introduced in Nigeria in the 1920's
+  filter(years_of_experience <60) %>%
+  # The normal price range for a bag of potato
+  filter(potato_bag_price >15000 & potato_bag_price < 40000) %>%
+  filter(baskets_of_potato_seed <1000) %>%
+  # This is to to avoid having infinity as proportion of fertilizer purchased
+  filter(fert_bags_required >1) %>%
+  filter(fert_bags_purchased_preseason < fert_bags_required*2) %>%
+  filter(qty_potato_stored_tons < potato_harvested_tons) %>%
+  filter(potato_harvested_tons < farmland_cultivated_ha*50) %>%
+  filter(potato_sold_bags < quantity_harvested_bags) %>%
+  summary()
+```
+
+```{r}
+colnames(pvcp_data)
+```
+
+```{r cleaned_data}
+pvcp_data %>%
+  select(id, today, survey_day, survey_month, lga_of_residence, Village, time_taken, birth_year, 
+         Gender, Marital_Status,
+         Household_size, Educational_Level, Living_Arrangement, roof_type, coop_society_member,
+         planting_time, potato_farmsize_ha, potato_seeds_tons, cost_of_seeds, cost_of_farm_prep,
+         total_fert_bags_purchased, total_cost_of_fert, mixed_cropping, years_of_experience,
+         prior_participation, potato_variety, time_of_harvest, potato_harvested_tons, need_a_store,
+         find_storage_facility, qty_potato_stored_tons, post_harvest_losses, post_harvest_loss_tons,
+         potato_sold_tons, potato_price_kg, potato_price_ton, hired_labourers, hired_labourers_num,
+         labourers_wages, nature_of_labour) %>%
+  rename_all(., .funs = tolower) %>%
+  drop_na() %>%
+  write_csv(., 
+            "/home/spomaria/Documents/Spomary-Files/R-Scripts/Potato-Production-Survey-Sept-2023/ps_pvcp_production_data_sept_2023.csv")
+```
+
+
+Fig. 1 shows how the mean survey completion time varies across the seventeen (17) Local Government Areas with Riyom Local Government having the lowest mean survey completion time of 4.48 minutes while Langtang South and Shendam Local Governments both having the highest mean survey completion time of 14.5 minutes.
+
+```{r comp_times_plot_lga, fig.cap= "Fig. 1: Average Survey Completion Time by Local Government Area"}
+#Plotting Average Survey Completion Times by LGA
+pvcp_data %>%
+  select(lga_residence,time_taken) %>% 
+  #We consider those with up to 100min survey time as outliers
+  filter(time_taken < 100) %>%
+  group_by(lga_residence)%>%
+  summarize(mean_time = round(mean(time_taken, na.rm = T),2)) %>% 
+  arrange(mean_time) %>% 
+  ggplot(., 
+         mapping = aes(x = fct_reorder(lga_residence, desc(mean_time), 
+                                       .desc = TRUE), y = mean_time)) +
+  geom_text(aes(label = mean_time), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  geom_col(color = "steelblue", fill = "steelblue") +
+  labs(title = "Average Survey Completion Time",
+       y = "Time (minutes)",
+       x = "Local Government Area", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+Furthermore, it took female participants shorter time on the average to complete the survey compared to the male participants. This is illustrated in Fig. 2.
+
+```{r comp_times_plot_gender, fig.cap= "Fig. 2: Average Survey Completion Time by Gender"}
+#Plotting Average Survey Completion Times by Gender
+pvcp_data %>%
+  select(gender,time_taken) %>% 
+  #We consider those with up to 100min survey time as outliers
+  filter(time_taken < 100) %>%
+  group_by(gender)%>%
+  summarize(mean_time = round(mean(time_taken, na.rm = T),2)) %>% 
+  arrange(mean_time) %>% 
+  ggplot(., 
+         mapping = aes(x = fct_reorder(gender, desc(mean_time), 
+                                       .desc = TRUE), y = mean_time)) +
+  geom_text(aes(label = mean_time), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  geom_col(color = "steelblue", fill = "steelblue") +
+  labs(title = "Average Survey Completion Time",
+       y = "Time (minutes)",
+       x = "Gender", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+
+```
+
+### 4.2	FARM SIZE
+The average potato farm size (ha) in Plateau State is estimated as 1.59ha per potato farmer. The Local Government with the smallest average potato farm size (ha) is Kanam LGA with an average of 0.05ha per farmer while Mangu LGA has the largest average potato farm size (ha) of 9.24ha per farmer (Fig. 3).
+
+Note that the Potato Value Chain Support Project has classified the Local Governments in the State into two categories viz: Core Potato Producing LGAs and Non-Core Potato Producing LGAs. The Core Potato Producing LGAs of the State include: Barkin Ladi, Bassa, Bokkos, Jos East, Jos North, Jos South, Mangu, Pankshin and Riyom. The survey showed that the average potato farm size (ha) is 2.23ha per farmer in the Core Potato Producing Local Governments and 0.38ha per farmer for the Non-Core Potato Producing Local Governments (Fig. 4).
+
+```{r farm_size_lga, fig.cap= "Fig. 3: Average Potato Farm Size (Ha) by Local Government Area"}
+#Computing Average Farm Size by LGA
+pvcp_data %>%
+  select(lga_residence,farm_size_ha) %>% 
+  group_by(lga_residence)%>%
+  summarize(mean_size = round(mean(farm_size_ha, na.rm = T),2)) %>% 
+  arrange(mean_size) %>% 
+  ggplot(., 
+         mapping = aes(x = fct_reorder(lga_residence, desc(mean_size), 
+                                       .desc = TRUE), y = mean_size)) +
+  geom_text(aes(label = mean_size), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  geom_col(color = "steelblue", fill = "steelblue") +
+  labs(title = "Average Potato Farm Size",
+       y = "Farm Size (Ha)",
+       x = "Local Government Area", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+```{r farm_size_core_lga, fig.cap= "Fig. 4: Average Potato Farm Size (ha) for Core and Non-Core Potato Producing Local Government Areas"}
+pvcp_data %>%
+  select(core_potato_lga,farm_size_ha) %>% 
+  group_by(core_potato_lga)%>%
+  summarize(mean_size = round(mean(farm_size_ha, na.rm = T),2)) %>% 
+  arrange(mean_size) %>% 
+  ggplot(., 
+         mapping = aes(x = fct_reorder(core_potato_lga, desc(mean_size), 
+                                       .desc = TRUE), y = mean_size)) +
+  geom_text(aes(label = mean_size), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  geom_col(color = "steelblue", fill = "steelblue") +
+  labs(title = "Average Potato Farm Size",
+       y = "Farm Size (Ha)",
+       x = "Core Potato Producing LGA", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+Aggregating the result by gender, the average potato farm size (ha) per female farmer is 1.49ha and 1.67ha per male farmer in Plateau State (Fig. 5).
+
+```{r farm_size_gender, fig.cap= "Fig. 5: Average Potato Farm Size (ha) by Gender"}
+pvcp_data %>%
+  select(gender,farm_size_ha) %>% 
+  group_by(gender)%>%
+  summarize(mean_size = round(mean(farm_size_ha, na.rm = T),2)) %>% 
+  arrange(mean_size) %>% 
+  ggplot(., 
+         mapping = aes(x = fct_reorder(gender, desc(mean_size), 
+                                       .desc = TRUE), y = mean_size)) +
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_size), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  labs(title = "Average Potato Farm Size",
+       y = "Farm Size (Ha)",
+       x = "Gender", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+On average, 40.9% of farmland is used for the cultivation of potato per farmer in Plateau State. In Bokkos Local Government, 58% of farmland on the average is used for the cultivation of potato per farmer while in Qua’an Pan Local Government, 10.1% of farmland is used for the cultivation of potato per farmer (Fig. 6). Also, the average percentage of farmland used for the cultivation of potato per farmer in the Core Potato Producing LGAs is 46.0% while in the Non-Core Producing LGA is 31.2% (Fig. 7).
+
+```{r farm_percent_lga, fig.cap= "Fig. 6: Average Percentage of Farm used for Potato Cultivation by Local Government Area"}
+#Proportion of Farmland Used for Cultivation of Potato
+pvcp_data %>%
+  mutate(potato_farm_prop = farm_size_ha/(farm_size_ha + 
+                                            farm_size_others_ha)*100) %>%
+  select(lga_residence,potato_farm_prop) %>% 
+  group_by(lga_residence) %>%
+  summarize(mean_farm_prop = round(mean(potato_farm_prop, na.rm = T),2)) %>%
+  arrange(mean_farm_prop) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(lga_residence, desc(mean_farm_prop), 
+                                       .desc = TRUE), y = mean_farm_prop)) +
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_farm_prop), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  labs(title = "Average Proportion of Farm Used for Potato Cultivation",
+       y = "Percentage (%)",
+       x = "Local Government Area", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+```{r farm_percent_core_lga, fig.cap= "Fig. 7: Average Percentage of Farm used for Potato Cultivation for Core and Non-Core Potato Producing Local Government Area"}
+pvcp_data %>%
+  mutate(potato_farm_prop = farm_size_ha/(farm_size_ha + 
+                                            farm_size_others_ha)*100) %>%
+  select(core_potato_lga,potato_farm_prop) %>% 
+  group_by(core_potato_lga) %>%
+  summarize(mean_farm_prop = round(mean(potato_farm_prop, na.rm = T),2)) %>%
+  arrange(mean_farm_prop) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(core_potato_lga, desc(mean_farm_prop), 
+                                       .desc = TRUE), y = mean_farm_prop)) +
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_farm_prop), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5)+
+  labs(title = "Average Proportion of Farm Used for Potato Cultivation",
+       y = "Percentage (%)",
+       x = "Core Potato Producing LGA", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+The survey also suggests that the average percentage of farmland used for the cultivation of potato per female farmer is 40% while the average percentage of farmland used for the cultivation of potato per male farmer is 41.6% (Fig. 8).
+
+```{r farm_percent_gender, fig.cap= "Fig. 8: Average Percentage of Farm used for Potato Cultivation by Gender"}
+pvcp_data %>%
+  mutate(potato_farm_prop = farm_size_ha/(farm_size_ha + 
+                                            farm_size_others_ha)*100) %>%
+  select(gender,potato_farm_prop) %>% 
+  group_by(gender) %>%
+  summarize(mean_farm_prop = round(mean(potato_farm_prop, na.rm = T),2)) %>%
+  arrange(mean_farm_prop) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(gender, desc(mean_farm_prop), 
+                                       .desc = TRUE), y = mean_farm_prop)) +
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_farm_prop), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  labs(title = "Average Proportion of Farm Used for Potato Cultivation",
+       y = "Percentage (%)",
+       x = "Gender", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+## 4.3	FARM PREPARATION AND PLANTING
+Fig. 9 shows that potato farmers spend between 20% and 60% of money budgeted for farm preparation and planting in cultivating potato, with Qua’an Pan having the lowest percentage and Riyom having the highest percentage. While the Core Potato Producing LGAs spend up to 50% on the average of the amount budgeted for farm preparation and planting to cultivate potato, the Non-Core Potato Producing LGAs spent about 35% on the average (Fig. 10).
+
+Furthermore, male farmers spend a little above 45% on the average of the amount budgeted for farm preparation and planting to cultivate potato, while female farmers spend a little below 45% on the average (Fig. 11).
+
+```{r farm_prep_lga, fig.cap= "Fig. 9: Average Percentage of Money Spent on Farm Preparation and Cultivation of Potato per Local Government Area"}
+#Plotting a bar chart of proportion of amount spent per LGA
+pvcp_data %>%
+  select(lga_residence, farm_prep_prop) %>%
+  group_by(lga_residence) %>%
+  summarise(mean_prep_prop = round(mean(farm_prep_prop), 2)) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(lga_residence, 
+                                       desc(mean_prep_prop),
+                                       .desc = TRUE), 
+                       y = mean_prep_prop)) + 
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_prep_prop), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5)+
+  labs(title = "Average Proportion of Money Spent on Farm Preparation 
+       and Cultivation of Potato",
+       y = "Percentage (%)",
+       x = "Local Government", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+
+```{r farm_prep_core_lga, fig.cap= "Fig. 10: Average Percentage of Money Spent on Farm Preparation and Cultivation of Potato per Core and Non-Core Potato Producing LGA"}
+pvcp_data %>%
+  select(core_potato_lga, farm_prep_prop) %>%
+  group_by(core_potato_lga) %>%
+  summarise(mean_prep_prop = round(mean(farm_prep_prop),2)) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(core_potato_lga, 
+                                       desc(mean_prep_prop),
+                                       .desc = TRUE), 
+                       y = mean_prep_prop)) + 
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_prep_prop), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5)+
+  labs(title = "Average Proportion of Money Spent on Farm Preparation 
+       and Cultivation of Potato",
+       y = "Percentage (%)",
+       x = "Core Potato Producing LGA", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+```{r farm_prep_gender, fig.cap= "Fig. 11: Average Percentage of Money Spent on Farm Preparation and Cultivation of Potato per Gender"}
+pvcp_data %>%
+  select(gender, farm_prep_prop) %>%
+  group_by(gender) %>%
+  summarise(mean_prep_prop = round(mean(farm_prep_prop),2)) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(gender, 
+                                       desc(mean_prep_prop),
+                                       .desc = TRUE), 
+                       y = mean_prep_prop)) + 
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_prep_prop), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5)+
+  labs(title = "Average Proportion of Money Spent on Farm Preparation 
+       and Cultivation of Potato",
+       y = "Percentage (%)",
+       x = "Gender", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+```{r planting_times, fig.cap= "Fig. 12: A Pie Chart of Potato Planting Times"}
+pvcp_data %>% 
+  count(month_of_planting)%>% 
+  arrange(n) %>%
+  ggplot(., aes(x="", y=n, fill=month_of_planting)) +
+  geom_bar(stat="identity", width=1, color = "black") +
+  coord_polar("y", start=0) + theme_void() +
+  labs(title = "A Pie Chart of Planting Times",
+       caption = "Source: PS-PVCP Survey, July, 2023") +
+  #geom_text(aes(label = month_of_planting),
+   #         position = position_stack(vjust = 0.5)) +
+  guides(fill = guide_legend(title = "Month"))
+```
+
+The chart in Fig.12 shows that most farmers planted their potato in May while the month of June experienced least planting activities.
+
+### 4.4	FARM INPUTS
+```{r fert_purchased_lga, fig.cap= "Fig. 13: Average Proportion of Total Required Fertilizer Purchased per Local Government Area"}
+#Proportion of Fertilizer Purchased
+#By LGA
+pvcp_data %>%
+  select(lga_residence, fert_prop) %>%
+  #removing outliers
+  filter(fert_prop > 0.05 & fert_prop < 100) %>%
+  group_by(lga_residence) %>%
+  summarise(mean_fert_prop = round(mean(fert_prop),2)) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(lga_residence, 
+                                       desc(mean_fert_prop),
+                                       .desc = TRUE), 
+                       y = mean_fert_prop)) + 
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_fert_prop), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5)+
+  labs(title = "Average Proportion of Total Required Fertilizer Purchased ",
+       y = "Percentage (%)",
+       x = "Local Government", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+The survey shows that potato farmers have purchased between 15% and 80% of the total quantity of fertilizer they require on their farms by the time of planting. Farmers in Pankshin LGA have the lowest proportion of required fertilizer purchased while farmers in Jos East have the highest proportion of required fertilizer purchased as at the time of planting (Fig. 13). Also, it was discovered that female farmers purchased about 54.1% of the total quantity of fertilizer they require on their farms by the time of planting while male farmers purchased about 52.6% (Fig. 14).
+
+```{r fert_purchased_gender, fig.cap= "Fig. 14: Average Proportion of Total Required Fertilizer Purchased per Gender"}
+#By Gender
+pvcp_data %>%
+  select(gender, fert_prop) %>%
+  #removing outliers
+  filter(fert_prop > 0.05 & fert_prop < 100) %>%
+  group_by(gender) %>%
+  summarise(mean_fert_prop = round(mean(fert_prop),2)) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(gender, 
+                                       desc(mean_fert_prop),
+                                       .desc = TRUE), 
+                       y = mean_fert_prop)) + 
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_fert_prop), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  labs(title = "Average Proportion of Total Required Fertilizer Purchased ",
+       y = "Percentage (%)",
+       x = "Gender", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+The average quantity of potato seeds planted per hectare in Plateau State is 1.90ha. This is satisfactory compared to international standard of 1.5 – 1.8ton/ha for round varieties and 2.0 – 2.5ton/ha for oval varieties. However, farmers from Mikang Bokkos and Wase Local Governments have far more potato seeds per hectare i.e. between 3 – 4.5ton/ha, while farmers from Mangu, Jos East, Riyom, Langtang South, Pankshin, Shendam and Jos North Local Governments have less than 1.0ton/ha planted on their farms (Fig. 15).
+
+```{r seeds_hectare, fig.cap= "Fig. 15: Average Potato Seeds Planted Per Hectare Per Local Government Area"}
+pvcp_data %>%
+  filter(farm_size_ha > 0.05) %>%
+  mutate(seeds_per_ha = potato_seeds_kg/farm_size_ha/1000)%>%
+  #removing outliers 
+  #by standard practice, the requirement is 2.5t/ha max
+  #we do not want to consider those with twice as much in our analysis
+  filter(seeds_per_ha > 0.5 & seeds_per_ha < 10) %>%
+  select(lga_residence, seeds_per_ha) %>%
+  group_by(lga_residence) %>%
+  summarise(mean_seeds_ha = round(mean(seeds_per_ha), 2)) %>%
+  ggplot(., 
+         mapping = aes(x = fct_reorder(lga_residence, 
+                                       desc(mean_seeds_ha),
+                                       .desc = TRUE), 
+                       y = mean_seeds_ha)) + 
+  geom_col(color = "steelblue", fill = "steelblue") +
+  geom_text(aes(label = mean_seeds_ha), 
+            position = position_dodge(width=0.7), hjust = 0.05, cex=3.5) +
+  labs(title = "Average Potato Seeds Per Hectare",
+       y = "ton/ha",
+       x = "Local Government", caption = "Source: PS-PVCP Survey, July, 2023") + 
+  coord_flip()
+```
+
+## 5.0	FINDINGS
+
+### Adoption of Potato in the Southern Agro-Ecological Zone of the State
+In only about 2 – 3 years after the potato adaptability trial in the Southern Agro-Ecological Zone of the State, farmers in this zone have been able to dedicate about 10% to 53% of their farmlands and about 21% to 52% of their budgeted amount for farm preparation and planting to potato cultivation (Table 1). This adoption rate is impressive considering that farmers typically cultivate more than one crop in any given cropping season.
+
+Summary of other findings are listed in Table 2.
+
+```{r table_1}
+knitr::kable(mtcars[1:2, 1:2], "html")
+```
+
+## 6.0	CONCLUSION
+Although this survey relies heavily on the ability of the farmers to provide accurate information about their farms, there are lessons to learn. The survey suggests that farmers in some LGAs of the State either have over-populated seeds or under-populated seeds on their potato farms. Farms with over-populated potato plants can lead to low yield per plant. This is because the potato plants will not have the required space to give optimal yield which will in turn affect the yield per hectare of such farms. Similarly, farms with under-populated potato plants will equally reduce the yield per hectare of the crop since the potato plants can only use the required space for optimal yield and leave any extra space idle. This means farmers need to be trained on how to optimize the use of their farms for better yield.
+
+Secondly, farmers’ attitude towards the purchase of inputs before farming season is far from satisfactory. Since these farm inputs are found in the open market, they are affected by demand and supplies forces as well. As such, purchasing farm inputs when farming activities are at their peak will expose farmers to harsh market conditions which will in turn reduce their profit margin.
+
+Some farmers plant their potato crop as far as the months of June and July. This implies that such farmers will not be able to enjoy two cropping cycles in one rainy season. This defies the intension of the PIU to get farmers plant their potato in two cycles during the rainy season and one cycle during the dry season to sustain an all year round production. There is need to further educate farmers on how to optimize planting times.
+
+This survey is preliminary as it is meant to track only the planting activities of potato farmers in Plateau State. Another survey is being prepared to take off in the last week of August to mid-September which will track the entire farming activities for rainy season of 2023. The forthcoming survey aims to provide more information such as variety of potato planted in the State, estimated yield per hectare, nature of farming (manual or mechanized), estimated number of persons employed, and post harvest losses if any.

@@ -7,6 +7,6 @@ Plateau is one of the 36 States in Nigeria which comprises of 17 Local Governmen
 This directory contains the following files:
 1. README.md: this file introducing you to the directory
 2. ps_pvcp_production_data_sept_2023--dirty.csv: the data generated from the survey. This data was only partially cleaned and so is still dirty.
-3. ps-pvcp_survey_sept_2023.csv: this is the cleaned data used for analysis of the survey. 
+3. ps_pvcp_production_data_sept_2023.csv: this is the cleaned data used for analysis of the survey. 
 4. ps-pvcp-production-survey-sept-2023--data-cleaning.Rmd: an RMarkdown file that documents the data cleaning process followed to obtain the clean data used for analysis.
 5. ps-pvcp-production-survey-sept-2023.Rmd: an RMarkdown file that documents the analysis process and results discussion.

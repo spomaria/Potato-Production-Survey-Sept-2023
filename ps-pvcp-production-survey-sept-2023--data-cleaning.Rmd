@@ -30,7 +30,7 @@ The survey process began in the first week of August, 2023 with the design of di
 
 The KoboToolbox link was shared with the seventeen (17) Local Government Desk Officers on August 14, 2023 via the Whatsapp platform which has been in use since October, 2022. The survey ended on September 5, 2023, covering a duration of three weeks. The Plateau State Potato Value Chain Support Project has so far registered 24,227 farmers across the 17 Local Government Areas (LGAs) of the State through the various Desk Officers. 
 
-About 26% of the registered farmers was targeted as sample size for the survey corresponding to 6,358 participants. Stratified Sampling was used to determine the sample size for each Local Government since the number of registered farmers vary across the LGAs. At the end of the survey, 4,747 farmers participated being 19.6% of the total registered farmers and 74% of the target sample size. The survey data (in csv format) is stored in GitHub, an open source developer platform and can be accessed via [this link](https://github.com/spomaria/ps_pvcp_survey_report_jul_2023).
+About 26% of the registered farmers was targeted as sample size for the survey corresponding to 6,358 participants. Stratified Sampling was used to determine the sample size for each Local Government since the number of registered farmers vary across the LGAs. At the end of the survey, 4,747 farmers participated being 19.6% of the total registered farmers and 74% of the target sample size. The survey data (in csv format) is stored in GitHub, an open source developer platform and can be accessed via [this link](https://github.com/spomaria/Potato-Production-Survey-Sept-2023).
 
 ## 3.0  DATA CLEANING
 Just as in most developing countries of the world, the locals use measurements that vary from international standards. Bearing this in mind, the survey questions were designed in a way as to use measurements that are familiar to the farmers and afterwards, make the necessary conversions. This technique will enhance farmers’ understanding of the survey questions and guarantee accurate responses thereby improving on the reliability of the results from survey.
@@ -57,7 +57,7 @@ Data Cleaning measures undertaken include:
   library(skimr)
 ```
 
-```{r}
+```{r results='hide'}
 getwd()
 ```
 
@@ -138,7 +138,7 @@ pvcp_data %>%
   arrange(-n)
 ```
 ```{r count_by_month, results='hide'}
-#To find the busiest day of the survey
+#To find the busiest month of the survey
 # We arrange the counts by day in descending order
 pvcp_data %>% 
   #this code creates a count of responses per weekday
@@ -176,7 +176,7 @@ pvcp_data %>%
   summary()
 ```
 
-```{r}
+```{r results='hide'}
 colnames(pvcp_data)
 ```
 
@@ -201,4 +201,4 @@ pvcp_data %>%
             "/home/spomaria/Documents/Spomary-Files/R-Scripts/Potato-Production-Survey-Sept-2023/ps_pvcp_production_data_sept_2023.csv")
 ```
 
-This concludes the data cleaning exercise for this survey.
+This concludes the data cleaning exercise for this survey. Remember, the data both dirty and clean (in csv format) can be accessed via [this link](https://github.com/spomaria/Potato-Production-Survey-Sept-2023).
